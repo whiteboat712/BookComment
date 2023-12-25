@@ -36,7 +36,7 @@
             margin-bottom: 5px;
         }
         input[type="text"], input[type="password"] {
-            width: 100%;
+            width: 90%;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;

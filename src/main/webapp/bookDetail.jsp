@@ -17,6 +17,7 @@
 <jsp:useBean id="comments" class="java.util.ArrayList" scope="request"/>
 <%
     ArrayList<Comment> commentNew = (ArrayList<Comment>) request.getAttribute("comments");
+    int rating = (int) request.getAttribute("rating");
 %>
 <!DOCTYPE html>
 <html>
@@ -183,6 +184,7 @@
         <div class="book-info">
             <img src="image-servlet?id=${book.bid}&type=book" style="width: 400px"  alt="封面"/>
             <h3><%= book.getBname() %></h3>
+            <p>评分： <%= rating / 10 + "." + rating % 10 %></p>
             <p>作者：<%= book.getBauthor() %></p>
             <p>出版商：<%= book.getPublisher() %></p>
             <p>出版时间：<%= book.getPublishDate() %></p>
@@ -192,14 +194,27 @@
             <h2>${comments.size()}条评论</h2>
             <c:if test="${user != null && user.uid != 0}">
                 <div class="comment-form">
+                    你为这本书打分：
+                    <form action="submit-rating-servlet" method="post">
+                        <input type="hidden" name="bid" value="${book.bid}">
+                        <input type="hidden" name="uid" value="${user.uid}">
+                        <select name="rating" style="width: 100px; font-size: 14px;">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5" selected>5</option>
+                        </select>
+                        <button type="submit">评分</button>
+                    </form>
+                </div>
+                <div class="comment-form">
                     <form action="comment-comment-servlet" method="post">
-
                         <input type="hidden" name="bid" value="${book.bid}">
                         <input type="hidden" name="uid" value="${user.uid}">
                         <input type="hidden" name="parentid" value="0">
                         <textarea name="content" placeholder="写下你的评论..."  ></textarea>
                         <button type="submit">发布</button>
-
                     </form>
                 </div>
             </c:if>

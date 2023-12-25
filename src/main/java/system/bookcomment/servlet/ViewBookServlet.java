@@ -21,6 +21,7 @@ public class ViewBookServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String bid = req.getParameter("bid");
         req.setAttribute("book", backendService.getBookById(Integer.parseInt(bid)));
+        req.setAttribute("rating", publicService.getBookRating(Integer.parseInt(bid)));
         List<Comment> comments = publicService.getBookComments(Integer.parseInt(bid));
         req.setAttribute("comments", comments);
         req.getRequestDispatcher("/bookDetail.jsp").forward(req, resp);

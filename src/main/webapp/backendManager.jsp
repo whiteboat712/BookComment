@@ -11,13 +11,24 @@
 <head>
     <title>后台管理</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+        }
         .func-block {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            margin-bottom: 20px;
         }
-
         .button-group {
             display: flex;
             justify-content: space-around;
@@ -32,6 +43,7 @@
             border-radius: 5px;
             cursor: pointer;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 0 10px;
         }
         .button-group button:hover {
             background-color: #f8e4e4;

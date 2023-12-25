@@ -2,9 +2,11 @@ package system.bookcomment.service;
 
 import system.bookcomment.dao.BookDao;
 import system.bookcomment.dao.CommentDao;
+import system.bookcomment.dao.RatingDao;
 import system.bookcomment.dao.UserDao;
 import system.bookcomment.model.Book;
 import system.bookcomment.model.Comment;
+import system.bookcomment.model.Rating;
 import system.bookcomment.model.User;
 
 import java.sql.SQLException;
@@ -14,6 +16,7 @@ public class PublicService {
     UserDao userDao = new UserDao();
     BookDao bookDao = new BookDao();
     CommentDao commentDao = new CommentDao();
+    RatingDao ratingDao = new RatingDao();
     /**
      * 登录
      * @param uid
@@ -76,6 +79,30 @@ public class PublicService {
     public List<Comment> getBookComments(int bid) {
         try {
             return commentDao.getBookComments(bid);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public int getBookRating(int bid) {
+        try {
+            List<Rating> ratingByBookId = ratingDao.getRatingByBookId(bid);
+            if (ratingByBookId.isEmpty()) {
+                return 0;
+            }
+            int sum = 0;
+            for (Rating rating : ratingByBookId) {
+                sum += rating.getScore();
+            }
+            return sum * 10 / ratingByBookId.size();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void submitRating(int bid, int uid, int rating) {
+        try {
+            ratingDao.addRating(new Rating(0, bid, uid, rating));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

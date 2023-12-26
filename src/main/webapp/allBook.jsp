@@ -21,7 +21,7 @@
     <title>所有书籍</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Microsoft YaHei UI", sans-serif;
             background-color: #f0f0f0;
         }
         table {

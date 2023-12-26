@@ -75,15 +75,17 @@
             padding: 10px 20px;
             background-color: #f06c6c;
             color: white;
-            border: none;
+            border: 2px solid #f06c6c;
             border-radius: 5px;
             cursor: pointer;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
+            transition: all 0.3s ease;
         }
         .user-info button:hover {
-            background-color: #f8e4e4;
-            color: black;
+            background-color: white;
+            color: #f06c6c;
+            border: 2px solid #f06c6c;
         }
         .button-group {
             display: flex;
@@ -97,10 +99,10 @@
             color: white;
         }
         .role.admin {
-            background-color: blue;
+            background-color: #17a1fc;
         }
         .role.user {
-            background-color: green;
+            background-color: #28fdcb;
         }
     </style>
 </head>

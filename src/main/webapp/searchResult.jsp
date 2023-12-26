@@ -77,14 +77,6 @@
                 </div>
             </div>
         </c:forEach>
-        <div class="box">
-            <img src="image-servlet" />
-            <div>
-                <h3>书名</h3>
-                <p>作者</p>
-                <p>这是一本非常好的书，值得一读。</p>
-            </div>
-        </div>
         <!-- 更多的方块... -->
     </div>
 </main>

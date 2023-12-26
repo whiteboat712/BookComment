@@ -23,8 +23,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String uid = req.getParameter("uid");
         String password = req.getParameter("password");
-        String role = req.getParameter("role");
-        if (uid == null || password == null || role == null) {
+        if (uid == null || password == null) {
             resp.sendRedirect("/login.jsp");
             return;
         }

@@ -12,15 +12,16 @@
 <head>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: MiSans, sans-serif;
             background-color: #f0f0f0;
         }
         .navbar {
             display: flex;
             justify-content: flex-end;
             padding: 10px;
-            background-color: #333;
-            color: white;
+            margin-bottom: 10px;
+            background-color: white;
+            color: #636363;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .navbar form {
@@ -31,22 +32,29 @@
         .navbar input[type="text"] {
             width: 200px;
             margin-right: 10px;
+            background-color: #f6f6f6;
             padding: 5px;
-            border: none;
-            border-radius: 3px;
+            border-radius: 50vh;
+            border: 2px solid #f06c6c;
+        }
+        .navbar input[type="text"]:focus {
+            border: 2px solid #f06c6c;
+            outline: #f06c6c;
         }
         .navbar button[type="submit"], .navbar button {
             padding: 5px 10px;
             margin: 0 5px;
-            border: none;
+            border: 2px solid #f06c6c;
             border-radius: 3px;
             background-color: #f06c6c;
             color: white;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
         .navbar button[type="submit"]:hover, .navbar button:hover {
-            background-color: #f8e4e4;
-            color: black;
+            background-color: white;
+            color: #f06c6c;
+            border: 2px solid #f06c6c;
         }
 
         .navbar span {
@@ -61,13 +69,26 @@
             margin-bottom: 0;
             margin-right: 10px;
         }
+        .logo {
+            color: #636363;
+            font-family: '苹方 常规',serif;
+            font-size: 30px;
+            border-bottom: white 3px solid;
+            margin-right: 10px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .logo:hover {
+            border-bottom: 3px #f06c6c solid;
+        }
+
     </style>
 </head>
 <body>
 <header>
     <div class="navbar">
-        <a href="index.jsp" style="color: #66ccff; margin-right: 10px; text-decoration: none">
-            读书评论网
+        <a class="logo" href="index.jsp" style="">
+            书影留声
         </a>
         <form action="search-servlet" method="get">
             <input type="text" name="key" placeholder="搜索...">

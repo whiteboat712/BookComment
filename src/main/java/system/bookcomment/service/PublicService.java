@@ -41,14 +41,13 @@ public class PublicService {
      * @param user
      * @return 注册成功返回true，否则返回false
      */
-    public boolean register(User user) {
+    public int register(User user) {
         try {
-            userDao.addUser(user);
-            return true;
+            return userDao.addUser(user);
         } catch (SQLException e) {
            e.printStackTrace();
         }
-        return false;
+        return 0;
     }
 
     public void updateUser(User user) {

@@ -15,7 +15,7 @@
             font-family: MiSans, sans-serif;
             margin: 0;
             padding: 0;
-            background: #66ccff;
+            background: #475164;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -31,12 +31,16 @@
         .form-group {
             margin-bottom: 15px;
         }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+        }
         label {
             display: block;
             margin-bottom: 5px;
         }
         input[type="text"], input[type="password"] {
-            width: 90%;
+            width: 95%;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
@@ -60,23 +64,20 @@
 </head>
 <body>
     <div>
+        <h1 style="font-size: 60px; font-family: '苹方 常规',serif;color: white">书影留声</h1>
         <form action="login-servlet" method="post">
             <h1>登录</h1>
             <div class="form-group">
-                <label for="uid">账户：</label>
+                <label for="uid">UID：</label>
                 <input type="text" id="uid" name="uid" placeholder="输入你的账户">
             </div>
             <div class="form-group">
                 <label for="password">密码：</label>
                 <input type="password" id="password" name="password" placeholder="输入你的密码">
             </div>
-            <div class="form-group">
-                <label>身份：</label>
-                <input type="radio" name="role" value="USER"> 用户
-                <input type="radio" name="role" value="ADMIN"> 管理员
-            </div>
-            <div class="form-group">
+            <div class="button-group">
                 <button type="submit">登录</button>
+                <a href="register.jsp"><button type="button">注册</button></a>
             </div>
             <div class="form-group">
                 <span class="error-message"></span>

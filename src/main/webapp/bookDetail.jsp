@@ -25,7 +25,7 @@
     <title>读书评论网-<%= book.getBname()%></title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 方正姚体, sans-serif;
             background-color: #f0f0f0;
         }
         .content {
@@ -36,7 +36,7 @@
             background-color: #f8f9fa;
         }
         .book-info {
-            width: 70%;
+            width: 60%;
             padding: 20px;
             background-color: white;
             border-radius: 5px;
@@ -47,8 +47,23 @@
             height: auto;
             margin-bottom: 20px;
         }
-        .book-info h3, .book-info p {
+        .book-info h3{
             margin: 0 0 10px 0;
+            /*border-bottom: 3px #f06c6c solid;*/
+            text-decoration: 3px #f06c6c underline;
+            font-size: 24px;
+        }
+        .book-info p {
+            margin: 0 0 10px 0;
+            font-size: 20px;
+        }
+        .book-info h2 {
+            margin: 0 0 10px 0;
+            font-size: 30px;
+        }
+        .book-info span {
+            margin: 0 0 10px 0;
+            font-size: 24px;
         }
 
         .comment-content {
@@ -183,12 +198,12 @@
     <div class="content">
         <div class="book-info">
             <img src="image-servlet?id=${book.bid}&type=book" style="width: 400px"  alt="封面"/>
-            <h3><%= book.getBname() %></h3>
-            <p>评分： <%= rating / 10 + "." + rating % 10 %></p>
+            <h2><%= book.getBname() %></h2>
+            <p>评分：<span style="color: darkorange"><%= rating / 10 + "." + rating % 10 %></span></p>
             <p>作者：<%= book.getBauthor() %></p>
             <p>出版商：<%= book.getPublisher() %></p>
             <p>出版时间：<%= book.getPublishDate() %></p>
-            <p>简介：<%= book.getBinfo() %></p>
+            <h3>简介</h3><%= book.getBinfo() %>
         </div>
         <div class="comment-content">
             <h2>${comments.size()}条评论</h2>
@@ -198,7 +213,7 @@
                     <form action="submit-rating-servlet" method="post">
                         <input type="hidden" name="bid" value="${book.bid}">
                         <input type="hidden" name="uid" value="${user.uid}">
-                        <select name="rating" style="width: 100px; font-size: 14px;">
+                        <select name="rating" style="margin-bottom: 5px; width: 100px; font-size: 14px;">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -226,7 +241,8 @@
                 <div class="comment">
                     <div class="comment-header">
                         <img src="image-servlet?id=<%= pc.getUid() %>&type=user" alt="用户头像">
-                        <h3><%= pc.getDate() %></h3>
+                        <p><%= pc.getDate() %></p>
+                        <
                     </div>
                     <p><%= pc.getContent() %></p>
                     <div class="comment-footer">
@@ -247,7 +263,7 @@
                 <div class="comment follow-comment">
                     <div class="comment-header">
                         <img src="image-servlet?id=<%= pc.getUid() %>&type=user" alt="用户头像">
-                        <h3><%= pc.getDate() %></h3>
+                        <p><%= pc.getDate() %></p>
                     </div>
                     <p><%= cc.getContent() %></p>
                 </div>

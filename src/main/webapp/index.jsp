@@ -32,12 +32,17 @@
         .box {
             width: 200px;
             height: 350px;
-            margin: 10px;
+            margin: 20px;
             border: 1px solid #ddd;
             border-radius: 3px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             background-color: white;
             padding: 10px;
+            transition: all 0.3s ease;
+        }
+        .box:hover {
+            scale: 1.1;
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
         }
         .box h3, .box p {
             margin: 0;
@@ -58,12 +63,6 @@
                 <p>${book.getBauthor()}</p>
             </div>
         </c:forEach>
-        <div class="box" style="width: 200px;">
-            <img src="image-servlet" style="width: 200px;" />
-            <h3>书名</h3>
-            <p>作者</p>
-        </div>
-        <!-- 更多的方块... -->
     </div>
 </main>
 </body>
